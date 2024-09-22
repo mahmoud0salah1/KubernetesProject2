@@ -23,23 +23,12 @@ kubectl apply -f proxy-deployment.yaml
 echo "Checking Kubernetes pods in namespace 'webapp'..."
 kubectl get pods -n webapp
 kubectl get deployments.apps -n webapp
-kubectl get pods --all-namespaces
-kubectl get pods
-kubectl get pods -o wide
-kubectl get nodes
-kubectl get nodes -n webapp
-
 minikube ip
 
 # Check Kubernetes services in the 'webapp' namespace
 echo "Checking Kubernetes services in namespace 'webapp'..."
 kubectl get services -n webapp
 kubectl get services -n webapp
-curl https://192.168.49.2:31000 -k
-curl https://192.168.49.2:31000 -k
-curl https://192.168.49.2:31000 -k
-curl https://192.168.49.2:31000 -k
-curl https://192.168.49.2:31000 -k
 curl https://192.168.49.2:31000 -k
 # End of script
 echo "Deployment steps completed."

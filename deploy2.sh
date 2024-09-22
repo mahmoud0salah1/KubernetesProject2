@@ -8,7 +8,6 @@ minikube start
 
 # Check Kubernetes pods in the 'webapp' namespace 
 kubectl create namespace webapp
-kubectl create namespace cicd
 kubectl apply -f backend-deployment.yaml
 kubectl apply -f db-data-pv.yaml
 kubectl apply -f db-data-pvc.yaml
@@ -24,18 +23,17 @@ kubectl apply -f proxy-deployment.yaml
 
 echo "Checking Kubernetes pods in namespace 'webapp'..."
 kubectl get pods -n webapp
-kubectl get pods -n webapp
-kubectl get pods -n webapp
-kubectl get pods -n webapp
 minikube ip
 
 # Check Kubernetes services in the 'webapp' namespace
 echo "Checking Kubernetes services in namespace 'webapp'..."
 kubectl get services -n webapp
 kubectl get services -n webapp
-kubectl get services -n webapp
-kubectl get services -n webapp
-kubectl get services -n webapp
+curl https://192.168.49.2:31000 -k
+curl https://192.168.49.2:31000 -k
+curl https://192.168.49.2:31000 -k
+curl https://192.168.49.2:31000 -k
+curl https://192.168.49.2:31000 -k
 curl https://192.168.49.2:31000 -k
 # End of script
 echo "Deployment steps completed."

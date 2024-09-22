@@ -12,7 +12,6 @@ kubectl apply -f backend-deployment.yaml
 kubectl apply -f db-data-pv.yaml
 kubectl apply -f db-data-pvc.yaml
 kubectl apply -f db-secret.yaml
-kubectl apply -f jenkins-deployment.yaml
 kubectl apply -f mysql-deployment.yaml
 kubectl apply -f mysql-service.yaml
 kubectl apply -f nginx-config.yaml

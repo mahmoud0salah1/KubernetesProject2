@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+  namespace: webapp
+data:
+  nginx.conf: |
+    http {
+        upstream backend {
+            server backend-service.webapp.svc.cluster.local:8000;  # Proxying to backend service on port 8000
+        }
+
+        server {
+            listen 80;
+
+            location / {
+                proxy_pass http://backend;
+            }
+        }
+    }

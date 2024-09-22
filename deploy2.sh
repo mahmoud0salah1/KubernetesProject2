@@ -22,6 +22,13 @@ kubectl apply -f proxy-deployment.yaml
 
 echo "Checking Kubernetes pods in namespace 'webapp'..."
 kubectl get pods -n webapp
+kubectl get deployments.apps -n webapp
+kubectl get pods --all-namespaces
+kubectl get pods
+kubectl get pods -o wide
+kubectl get nodes
+kubectl get nodes -n webapp
+
 minikube ip
 
 # Check Kubernetes services in the 'webapp' namespace

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Set PATH to include the directory where Minikube and Kubectl are installed
+export PATH=$PATH:$HOME/bin
+
 # Start Minikube
 echo "Starting Minikube..."
 minikube start --driver=docker
@@ -15,9 +18,6 @@ kubectl apply -f mysql-service.yaml
 kubectl apply -f nginx-config.yaml
 kubectl apply -f proxy-deployment.yaml
 
-
-
-
 echo "Checking Kubernetes pods in namespace 'webapp'..."
 kubectl get pods -n webapp
 kubectl get deployments.apps -n webapp
@@ -28,5 +28,5 @@ echo "Checking Kubernetes services in namespace 'webapp'..."
 kubectl get services -n webapp
 kubectl get services -n webapp
 curl https://192.168.49.2:31000 -k
+
 # End of script
-echo "Deployment steps completed."

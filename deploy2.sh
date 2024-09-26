@@ -2,9 +2,7 @@
 
 # Start Minikube
 echo "Starting Minikube..."
-minikube stop
-minikube delete
-minikube start
+minikube start --driver=docker
 
 # Check Kubernetes pods in the 'webapp' namespace 
 kubectl create namespace webapp

@@ -1,4 +1,7 @@
 #!/bin/bash
+minikube stop
+minikube delete
+minikube start
 
 
 # Check Kubernetes pods in the 'webapp' namespace 

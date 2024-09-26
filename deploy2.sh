@@ -3,9 +3,7 @@
 # Set PATH to include the directory where Minikube and Kubectl are installed
 export PATH=$PATH:$HOME/bin
 
-# Start Minikube
-echo "Starting Minikube..."
-minikube start --driver=docker
+
 
 # Check Kubernetes pods in the 'webapp' namespace 
 kubectl create namespace webapp

@@ -1,8 +1,5 @@
 #!/bin/bash
-minikube stop
-minikube delete
-minikube start
-
+export PATH=$PATH:$HOME/bin
 
 # Check Kubernetes pods in the 'webapp' namespace 
 kubectl create namespace webapp

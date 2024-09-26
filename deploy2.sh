@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Set PATH to include the directory where Minikube and Kubectl are installed
-export PATH=$PATH:$HOME/bin
-
-
 
 # Check Kubernetes pods in the 'webapp' namespace 
 kubectl create namespace webapp

@@ -21,6 +21,5 @@ kubectl get pods -n webapp
 kubectl get deployments.apps -n webapp
 kubectl get services -n webapp
 
-# Access the service using Minikube IP
-minikube ip
-curl https://192.168.49.2:31000 -k
+
+

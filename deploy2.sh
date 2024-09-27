@@ -1,8 +1,11 @@
 #!/bin/bash
-export PATH=$PATH:$HOME/bin
 
-# Check Kubernetes pods in the 'webapp' namespace 
-kubectl create namespace webapp
+# Use the existing Minikube Docker environment
+echo "Using Minikube Docker environment..."
+eval $(minikube -p minikube docker-env)
+
+# Apply Kubernetes manifests
+kubectl create namespace webapp || true
 kubectl apply -f backend-deployment.yaml
 kubectl apply -f db-data-pv.yaml
 kubectl apply -f db-data-pvc.yaml
@@ -12,15 +15,12 @@ kubectl apply -f mysql-service.yaml
 kubectl apply -f nginx-config.yaml
 kubectl apply -f proxy-deployment.yaml
 
+# Check Kubernetes pods and services
 echo "Checking Kubernetes pods in namespace 'webapp'..."
 kubectl get pods -n webapp
 kubectl get deployments.apps -n webapp
+kubectl get services -n webapp
+
+# Access the service using Minikube IP
 minikube ip
-
-# Check Kubernetes services in the 'webapp' namespace
-echo "Checking Kubernetes services in namespace 'webapp'..."
-kubectl get services -n webapp
-kubectl get services -n webapp
-
-
-# End of script
+curl https://192.168.49.2:31000 -k

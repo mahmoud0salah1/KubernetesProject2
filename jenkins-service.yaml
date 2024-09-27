@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins-service
+  namespace: cicd
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      port: 8080       # Port on the cluster
+      targetPort: 8080  # Port on the Jenkins container
+      nodePort: 32000   # External port to access Jenkins with
+    - name: agent
+      port: 50000      # For Jenkins slave agents
+      targetPort: 50000
+  selector:
+    app: jenkins
